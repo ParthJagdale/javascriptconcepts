@@ -1,0 +1,22 @@
+// Example of Closure in JavaScript
+
+function outerFunction(outerVariable) {
+    return function innerFunction(innerVariable) {
+        console.log('Outer Variable: ' + outerVariable);
+        console.log('Inner Variable: ' + innerVariable);
+    }
+}
+
+const newFunction = outerFunction('outside');
+
+newFunction('inside'); // This will log "Outer Variable: outside" and "Inner Variable: inside"
+
+
+/*  this is the expaination of the code if u need 
+
+outerFunction: This is a function that takes one parameter, outerVariable. It returns another function, innerFunction.
+innerFunction: This is an inner function defined inside outerFunction. It takes one parameter, innerVariable.
+Closure: When outerFunction is called with an argument (e.g., 'outside'), it returns innerFunction. Even after outerFunction has finished executing, innerFunction retains access to outerVariable through the closure.
+newFunction: This is the result of calling outerFunction('outside'). newFunction is essentially the innerFunction with access to outerVariable.
+Calling newFunction('inside'): When newFunction is called with the argument 'inside', it logs both outerVariable and innerVariable.
+*/
